@@ -1,8 +1,5 @@
 anguage: android
 jdk: oraclejdk7
-env:
-  matrix:
-    - ANDROID_TARGET=android-22 ANDROID_ABI=x86
 android:
   components:
     - build-tools-22.0.1
