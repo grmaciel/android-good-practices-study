@@ -1,0 +1,13 @@
+anguage: android
+jdk: oraclejdk7
+env:
+  matrix:
+    - ANDROID_TARGET=android-22 ANDROID_ABI=x86
+android:
+  components:
+    - build-tools-22.0.1
+    - extra-android-support
+    - android-22
+    - extra-google-m2repository
+    - extra-android-m2repository
+      #    - sys-img-x86-android-19
