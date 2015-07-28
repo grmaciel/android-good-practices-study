@@ -6,6 +6,7 @@
     <color name="PocketGymMenu">#FFFBD0</color>
     <color name="PocketGymProfileBg">#614126</color>
     <color name="BoozePriceBar">#00695c</color>
+    <color name="BoozePriceAccent">#00c7a0</color>
     <color name="White">#FFFFFF</color>
     <color name="Ivory">#FFFFF0</color>
     <color name="LightYellow">#FFFFE0</color>
