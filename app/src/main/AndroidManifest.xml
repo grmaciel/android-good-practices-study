@@ -18,7 +18,6 @@
         </activity>
 
         <activity android:name=".view.activity.MainActivity" />
-        <activity android:name=".view.activity.RegistrationActivity" />
     </application>
 
 </manifest>
