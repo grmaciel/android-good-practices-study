@@ -1,8 +1,7 @@
 package br.com.androidcore.activity;
 
-
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
@@ -10,8 +9,12 @@ import android.view.WindowManager;
 import br.com.androidcore.R;
 import br.com.androidcore.util.DialogUtil;
 
-public abstract class BaseActivity extends Activity {
+/**
+ * Created by Gilson Maciel on 28/07/2015.
+ */
+public abstract class BaseCompatActivity extends AppCompatActivity {
     public abstract void setViewValues();
+    public abstract int getLayoutFile();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,8 +25,6 @@ public abstract class BaseActivity extends Activity {
         loadParams(savedInstanceState);
         setViewValues();
     }
-
-    public abstract int getLayoutFile();
 
     public void loadParams(Bundle savedInstanceState) {
     }
@@ -44,21 +45,21 @@ public abstract class BaseActivity extends Activity {
     }
 
     public void hideActionBar() {
-        getActionBar().hide();
+        getSupportActionBar().hide();
     }
 
     public void showActionBar() {
-        getActionBar().show();
+        getSupportActionBar().show();
     }
 
     public void showActionBarBackButton() {
-        getActionBar().show();
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().show();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void hideActionBarBackButton() {
-        getActionBar().hide();
-        getActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().hide();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     public void hideKeyboard() {

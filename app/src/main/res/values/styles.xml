@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppBaseTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
 
@@ -9,16 +9,17 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:actionBarStyle">@style/CustomActionBar</item>
+        <item name="actionBarStyle">@style/CustomActionBar</item>
         <item name="colorAccent">#00c7a0</item>
         <item name="colorControlHighlight">#00695c</item>
     </style>
 
-    <style name="CustomActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">#00695c</item>
-        <item name="android:titleTextStyle">@style/Theme.MyAppTheme.ActionBar.TitleTextStyle</item>
-        <item name="android:homeAsUpIndicator">@mipmap/ic_launcher</item>
+    <style name="CustomActionBar" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="background">@color/BoozePriceBar</item>
+        <item name="titleTextStyle">@style/Theme.MyAppTheme.ActionBar.TitleTextStyle</item>
+        <item name="homeAsUpIndicator">@mipmap/ic_launcher</item>
     </style>
-    <style name="Theme.MyAppTheme.ActionBar.TitleTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+    <style name="Theme.MyAppTheme.ActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">#ffffff</item>
     </style>
 

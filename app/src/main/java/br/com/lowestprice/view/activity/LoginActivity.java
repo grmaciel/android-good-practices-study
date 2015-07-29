@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.widget.Button;
 
 import br.com.androidcore.activity.BaseActivity;
+import br.com.androidcore.activity.BaseCompatActivity;
 import br.com.lowestprice.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -12,7 +13,7 @@ import butterknife.OnClick;
 /**
  * Created by Gilson Maciel on 26/07/2015.
  */
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseCompatActivity {
     @Bind(R.id.loginBtnRegister)
     Button btnRegisterEmail;
     @Bind(R.id.loginBtnRegisterFacebook)
@@ -24,11 +25,6 @@ public class LoginActivity extends BaseActivity {
     public void setViewValues() {
         this.hideActionBar();
         ButterKnife.bind(this);
-    }
-
-    @Override
-    public void setViewListener() {
-
     }
 
     @Override
@@ -44,8 +40,8 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.loginBtnRegister)
     public void actionOnRegister() {
-//        Intent intent = new Intent(this, RegistrationActivity.class);
-//        startActivity(intent);
-//        overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
+        Intent intent = new Intent(this, RegistrationActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
     }
 }

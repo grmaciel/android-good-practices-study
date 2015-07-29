@@ -3,25 +3,23 @@ package br.com.lowestprice.view.activity;
 import android.view.Menu;
 
 import br.com.androidcore.activity.BaseActivity;
+import br.com.androidcore.activity.BaseCompatActivity;
 import br.com.lowestprice.R;
 
 /**
  * Created by Gilson Maciel on 21/07/2015.
  */
-public class RegistrationActivity extends BaseActivity {
+public class RegistrationActivity extends BaseCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-//        this.getMenuInflater().inflate(R.menu.menu_registration, menu);
+        this.getMenuInflater().inflate(R.menu.menu_registration, menu);
         return true;
     }
 
     @Override
     public void setViewValues() {
         this.showActionBarBackButton();
-    }
-
-    @Override
-    public void setViewListener() {
+        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_arrow_back));
     }
 
     @Override
