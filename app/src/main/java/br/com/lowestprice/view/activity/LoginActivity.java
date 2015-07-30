@@ -44,4 +44,16 @@ public class LoginActivity extends BaseCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.right_slide_in, R.anim.left_slide_out);
     }
+
+    public Button getBtnRegisterEmail() {
+        return btnRegisterEmail;
+    }
+
+    public Button getBtnRegisterFb() {
+        return btnRegisterFb;
+    }
+
+    public Button getBtnAccountLogin() {
+        return btnAccountLogin;
+    }
 }
