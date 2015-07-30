@@ -1,7 +1,7 @@
 # android-good-practices-study ![Build Status] (https://travis-ci.org/grmaciel/android-good-practices-study.svg?branch=master)
 
 ## The application <br>
-I want to study specific API's and technologies for the Android plataform. To achieve that i'm planning to build an application that will allow people to share promotion prices on beer, wine, vodka and any booze at all and their places using the google place picker API. It will show to the user the avaliable promotions near him. It can be extended to regular products but my focus right now is on the booze :)
+I want to study specific API's and technologies for the Android platform. To achieve that i'm planning to build an application that will allow people to share promotion prices on beer, wine, vodka and any booze at all and their places using the google place picker API. It will also show to the user the avaliable promotions near him. It can be extended to regular products but my focus right now is on the booze :)
 
 ## The Technologies <br>
 **Google Place Picker**<br>
@@ -9,6 +9,7 @@ I want to study specific API's and technologies for the Android plataform. To ac
 **Dagger 2 - Dependency Injection**<br>
 **Butter Knife - View Injection**<br>
 **Robolectric - Tests**<br>
+**Retrofit** - Rest communication<br>
 **Retrolambda**<br>
 **RxJava**<br>
 
