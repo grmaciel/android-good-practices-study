@@ -8,5 +8,7 @@
     <string name="btn_login">Registre-se com um e-mail</string>
     <string name="login">Log In</string>
     <string name="registrar">Registrar</string>
+    <string name="ultimas_promocoes">Últimas Promoções</string>
+    <string name="ver_perfil">Ver Perfil</string>
 
 </resources>
