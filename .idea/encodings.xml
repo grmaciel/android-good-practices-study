@@ -3,8 +3,16 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/app/src/main/java/br/com/lowestprice/view/adapter/NavigationAdapter.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/br/com/lowestprice/view/components/RoundedImageView.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/br/com/lowestprice/view/model/EnumSecaoMenu.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/br/com/lowestprice/view/model/EnumMenuSections.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/br/com/lowestprice/view/model/SecaoMenuItem.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_home.png" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_promotion.png" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_home.png" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_promotion.png" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_home.png" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_promotion.png" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_home.png" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_promotion.png" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/navigation_header.xml" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/navigation_item.xml" charset="windows-1252" />
     <file url="PROJECT" charset="UTF-8" />

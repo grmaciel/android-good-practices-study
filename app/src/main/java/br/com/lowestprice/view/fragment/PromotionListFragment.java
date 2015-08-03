@@ -3,7 +3,11 @@ package br.com.lowestprice.view.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 
+
+import java.util.List;
+
 import br.com.androidcore.activity.BaseFragment;
+import br.com.lowestprice.domain.model.Promotion;
 import br.com.lowestprice.view.PromotionView;
 
 /**
@@ -11,14 +15,23 @@ import br.com.lowestprice.view.PromotionView;
  */
 public class PromotionListFragment extends BaseFragment implements PromotionView {
 
+    @Override
+    public void renderPromotionList(List<Promotion> promotions) {
+
+    }
 
     @Override
-    public void renderPromotionList() {
+    public void showPromotionRegistration() {
 
     }
 
     @Override
     public void viewPromotion() {
+
+    }
+
+    @Override
+    public void addNewPromotion() {
 
     }
 

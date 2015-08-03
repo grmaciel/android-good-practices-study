@@ -23,6 +23,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':core')
+    compile project(':domain')
     compile 'com.google.android.gms:play-services:7.0.0'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.android.support:design:22.2.0'

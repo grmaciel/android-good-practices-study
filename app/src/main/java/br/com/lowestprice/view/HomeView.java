@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * Created by Gilson Maciel on 01/08/2015.
  */
-public interface HomeView extends LoadDataView {
-    void renderPromotionList(List<Promotion> promotions);
+public interface HomeView extends PromotionView {
+    void renderPromotionPlaces();
+    void showPlacePicker();
 }

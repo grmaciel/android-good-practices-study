@@ -1,6 +1,7 @@
 package br.com.lowestprice.presenter;
 
 import com.google.android.gms.analytics.ecommerce.Promotion;
+import com.google.android.gms.location.places.Place;
 
 import java.util.List;
 
@@ -16,8 +17,18 @@ public class HomePresenter implements Presenter {
         this.view = view;
     }
 
-    public List<Promotion> getLastFourPromotions() {
+    public List<Promotion> getLastTwoPromotions() {
         return null;
+    }
+
+    public void getNearPromotionPlaces() {
+    }
+
+    public void onBtnAddPromotion() {
+        this.view.showPromotionRegistration();
+    }
+
+    public void onPlacePickerResult(Place place) {
     }
 
     public void actionOnNewPromotion(Promotion promotion) {

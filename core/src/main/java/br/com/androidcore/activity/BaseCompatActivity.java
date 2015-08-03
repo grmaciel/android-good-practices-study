@@ -55,6 +55,7 @@ public abstract class BaseCompatActivity extends AppCompatActivity {
     public void showActionBarBackButton() {
         getSupportActionBar().show();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_arrow_back));
     }
 
     public void hideActionBarBackButton() {

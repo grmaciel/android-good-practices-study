@@ -19,7 +19,6 @@ public class RegistrationActivity extends BaseCompatActivity {
     @Override
     public void setViewValues() {
         this.showActionBarBackButton();
-        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_arrow_back));
     }
 
     @Override

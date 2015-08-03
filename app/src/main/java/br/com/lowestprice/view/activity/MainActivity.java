@@ -1,6 +1,5 @@
 package br.com.lowestprice.view.activity;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -10,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -28,7 +28,7 @@ import br.com.androidcore.activity.BaseCompatActivity;
 import br.com.lowestprice.R;
 import br.com.lowestprice.view.adapter.NavigationAdapter;
 import br.com.lowestprice.view.fragment.HomeFragment;
-import br.com.lowestprice.view.model.EnumSecaoMenu;
+import br.com.lowestprice.view.model.EnumMenuSections;
 import br.com.lowestprice.view.model.SecaoMenuItem;
 import butterknife.ButterKnife;
 
@@ -41,6 +41,15 @@ public class MainActivity extends BaseCompatActivity {
     DrawerLayout drawerLayout;
 
     private ActionBarDrawerToggle drawerToggle;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void setViewValues() {
@@ -111,17 +120,6 @@ public class MainActivity extends BaseCompatActivity {
         fragTrans.commit();
     }
 
-    public void actionOnAddPromotionClick() {
-        try {
-            PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-            startActivityForResult(builder.build(getApplicationContext()), PLACE_PICKER_REQUEST);
-        } catch (GooglePlayServicesRepairableException e) {
-            e.printStackTrace();
-        } catch (GooglePlayServicesNotAvailableException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public int getLayoutFile() {
         return R.layout.activity_main;
@@ -157,9 +155,21 @@ public class MainActivity extends BaseCompatActivity {
         SecaoMenuItem menu1 = new SecaoMenuItem();
         menu1.icon = getResources().getDrawable(R.drawable.profile);
         menu1.label = "Gilson Maciel";
-        menu1.secao = EnumSecaoMenu.PERFIL;
+        menu1.secao = EnumMenuSections.PROFILE;
+
+        SecaoMenuItem menu2 = new SecaoMenuItem();
+        menu2.icon = getResources().getDrawable(R.drawable.ic_home);
+        menu2.label = getString(R.string.home);
+        menu2.secao = EnumMenuSections.HOME;
+
+        SecaoMenuItem menu3 = new SecaoMenuItem();
+        menu3.icon = getResources().getDrawable(R.drawable.ic_promotion);
+        menu3.label = getString(R.string.promocoes);
+        menu3.secao = EnumMenuSections.PROMOTIONS;
 
         menu.add(menu1);
+        menu.add(menu2);
+        menu.add(menu3);
 
         return menu;
     }
