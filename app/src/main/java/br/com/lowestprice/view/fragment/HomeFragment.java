@@ -18,6 +18,7 @@ import br.com.androidcore.activity.BaseFragment;
 import br.com.lowestprice.R;
 import br.com.lowestprice.domain.model.Promotion;
 import br.com.lowestprice.presenter.HomePresenter;
+import br.com.lowestprice.presenter.IHomePresenter;
 import br.com.lowestprice.view.HomeView;
 import br.com.lowestprice.view.PromotionView;
 import br.com.lowestprice.view.activity.PromotionAddActivity;
@@ -30,7 +31,7 @@ import butterknife.OnClick;
  * Created by Gilson Maciel on 01/08/2015.
  */
 public class HomeFragment extends BaseFragment implements PromotionView, HomeView {
-    private HomePresenter homePresenter;
+    private IHomePresenter homePresenter;
 
     private final int PLACE_PICKER_REQUEST = 1;
 
@@ -50,6 +51,7 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
 
     @Override
     public void setViewValues(Bundle savedInstanceState) {
+        // Dagger 2 injection
         homePresenter = new HomePresenter(this);
     }
 

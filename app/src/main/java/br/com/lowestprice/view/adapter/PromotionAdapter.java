@@ -1,11 +1,13 @@
 package br.com.lowestprice.view.adapter;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
 
 import br.com.androidcore.adapter.CustomAdapter;
+import br.com.lowestprice.R;
 import br.com.lowestprice.domain.model.Promotion;
 
 /**
@@ -33,6 +35,11 @@ public class PromotionAdapter extends CustomAdapter<Promotion> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        if (convertView == null) {
+            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+            convertView = inflater.inflate(R.layout.promotion_item, null);
+        }
+
+        return convertView;
     }
 }
