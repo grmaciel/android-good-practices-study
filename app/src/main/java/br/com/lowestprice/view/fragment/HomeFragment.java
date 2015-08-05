@@ -14,8 +14,12 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import br.com.androidcore.activity.BaseFragment;
 import br.com.lowestprice.R;
+import br.com.lowestprice.di.AndroidApplication;
+import br.com.lowestprice.di.component.DaggerActivityComponent;
 import br.com.lowestprice.domain.model.Promotion;
 import br.com.lowestprice.presenter.HomePresenter;
 import br.com.lowestprice.presenter.IHomePresenter;
@@ -31,7 +35,8 @@ import butterknife.OnClick;
  * Created by Gilson Maciel on 01/08/2015.
  */
 public class HomeFragment extends BaseFragment implements PromotionView, HomeView {
-    private IHomePresenter homePresenter;
+    @Inject
+    IHomePresenter homePresenter;
 
     private final int PLACE_PICKER_REQUEST = 1;
 
@@ -51,8 +56,12 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
 
     @Override
     public void setViewValues(Bundle savedInstanceState) {
-        // Dagger 2 injection
-        homePresenter = new HomePresenter(this);
+//        DaggerActivityComponent.builder()
+//                .applicationComponent(((AndroidApplication) getActivity().getApplication()).component())
+//                .build()
+//                .inject(this);
+
+        this.homePresenter = new HomePresenter(this);
     }
 
     @Override
