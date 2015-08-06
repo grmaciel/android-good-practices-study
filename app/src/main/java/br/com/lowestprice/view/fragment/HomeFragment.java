@@ -20,6 +20,8 @@ import br.com.androidcore.activity.BaseFragment;
 import br.com.lowestprice.R;
 import br.com.lowestprice.di.AndroidApplication;
 import br.com.lowestprice.di.component.DaggerActivityComponent;
+import br.com.lowestprice.di.component.DaggerPresenterComponent;
+import br.com.lowestprice.di.module.PresenterModule;
 import br.com.lowestprice.domain.model.Promotion;
 import br.com.lowestprice.presenter.HomePresenter;
 import br.com.lowestprice.presenter.IHomePresenter;
@@ -56,12 +58,10 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
 
     @Override
     public void setViewValues(Bundle savedInstanceState) {
-//        DaggerActivityComponent.builder()
-//                .applicationComponent(((AndroidApplication) getActivity().getApplication()).component())
-//                .build()
-//                .inject(this);
-
-        this.homePresenter = new HomePresenter(this);
+        DaggerPresenterComponent.builder()
+                .applicationComponent(((AndroidApplication) getActivity().getApplication()).component())
+                .presenterModule(new PresenterModule(this))
+                .build().inject(this);
     }
 
     @Override

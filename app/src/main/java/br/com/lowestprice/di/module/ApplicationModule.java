@@ -5,6 +5,7 @@ import android.content.Context;
 import javax.inject.Singleton;
 
 import br.com.lowestprice.di.AndroidApplication;
+import br.com.lowestprice.view.HomeView;
 import dagger.Module;
 import dagger.Provides;
 

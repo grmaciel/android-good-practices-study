@@ -4,7 +4,9 @@ import android.content.Context;
 
 import javax.inject.Singleton;
 
+import br.com.androidcore.activity.BaseActivity;
 import br.com.lowestprice.di.module.ApplicationModule;
+import br.com.lowestprice.di.module.PresenterModule;
 import dagger.Component;
 
 /**
@@ -12,7 +14,9 @@ import dagger.Component;
  */
 @Singleton
 @Component(
-        modules = ApplicationModule.class)
+        modules = {
+                ApplicationModule.class
+        })
 public interface ApplicationComponent {
     Context context();
 }

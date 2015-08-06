@@ -3,9 +3,11 @@ package br.com.lowestprice.view.activity;
 import android.content.Intent;
 import android.widget.Button;
 
-import br.com.androidcore.activity.BaseActivity;
+import javax.inject.Inject;
+
 import br.com.androidcore.activity.BaseCompatActivity;
 import br.com.lowestprice.R;
+import br.com.lowestprice.presenter.IHomePresenter;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -21,8 +23,12 @@ public class LoginActivity extends BaseCompatActivity {
     @Bind(R.id.loginBtnLogin)
     Button btnAccountLogin;
 
+    @Inject
+    IHomePresenter presenter;
+
     @Override
     public void setViewValues() {
+
         this.hideActionBar();
         ButterKnife.bind(this);
     }

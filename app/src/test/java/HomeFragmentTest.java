@@ -2,6 +2,7 @@ import android.content.Intent;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import org.robolectric.Robolectric;
 import org.robolectric.Shadows;
 import org.robolectric.util.FragmentTestUtil;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.lowestprice.domain.model.Promotion;
+import br.com.lowestprice.view.activity.MainActivity;
 import br.com.lowestprice.view.activity.PromotionAddActivity;
 import br.com.lowestprice.view.fragment.HomeFragment;
 
@@ -21,7 +23,8 @@ public class HomeFragmentTest extends BaseTest {
 
     @Override
     public void setup() {
-        fragment = new HomeFragment();
+        MainActivity activity = Robolectric.buildActivity(MainActivity.class).create().get();
+        fragment = (HomeFragment) activity.getHomeFragment();
         FragmentTestUtil.startFragment(fragment);
     }
 
@@ -50,8 +53,6 @@ public class HomeFragmentTest extends BaseTest {
         Assertions.assertThat(fragment.getPromotionListView()
                 .getAdapter().getCount()).isGreaterThan(0);
     }
-
-
 
     @Override
     public void tearDown() {

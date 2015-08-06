@@ -13,8 +13,18 @@ import dagger.Provides;
  */
 @Module
 public class PresenterModule {
-    @Provides @Singleton IHomePresenter provideHomePresenter(HomeView view) {
-        return new HomePresenter(view);
+    private final HomeView homeView;
+
+    public PresenterModule(HomeView homeView) {
+        this.homeView = homeView;
+    }
+
+    @Provides HomeView provideHomeView() {
+        return this.homeView;
+    }
+
+    @Provides @PerActivity IHomePresenter provideHomePresenter() {
+        return new HomePresenter(homeView);
     }
 
 }

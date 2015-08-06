@@ -16,16 +16,22 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import br.com.androidcore.activity.BaseCompatActivity;
 import br.com.lowestprice.R;
+import br.com.lowestprice.di.AndroidApplication;
+import br.com.lowestprice.di.component.DaggerActivityComponent;
+import br.com.lowestprice.di.module.PresenterModule;
+import br.com.lowestprice.domain.model.Promotion;
+import br.com.lowestprice.presenter.IHomePresenter;
+import br.com.lowestprice.view.HomeView;
 import br.com.lowestprice.view.adapter.NavigationAdapter;
 import br.com.lowestprice.view.fragment.HomeFragment;
 import br.com.lowestprice.view.model.EnumMenuSections;
@@ -147,6 +153,7 @@ public class MainActivity extends BaseCompatActivity {
 
     /**
      * This will give us our menus, their labels and their icon
+     *
      * @return
      */
     private List<SecaoMenuItem> getMenuItens() {
