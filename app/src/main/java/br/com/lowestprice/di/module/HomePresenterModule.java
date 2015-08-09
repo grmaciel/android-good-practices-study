@@ -1,7 +1,6 @@
 package br.com.lowestprice.di.module;
 
-import javax.inject.Singleton;
-
+import br.com.lowestprice.domain.repository.IPromotionRepository;
 import br.com.lowestprice.presenter.HomePresenter;
 import br.com.lowestprice.presenter.IHomePresenter;
 import br.com.lowestprice.view.HomeView;
@@ -12,10 +11,10 @@ import dagger.Provides;
  * Created by Gilson Maciel on 04/08/2015.
  */
 @Module
-public class PresenterModule {
+public class HomePresenterModule {
     private final HomeView homeView;
 
-    public PresenterModule(HomeView homeView) {
+    public HomePresenterModule(HomeView homeView) {
         this.homeView = homeView;
     }
 
@@ -23,8 +22,7 @@ public class PresenterModule {
         return this.homeView;
     }
 
-    @Provides @PerActivity IHomePresenter provideHomePresenter() {
-        return new HomePresenter(homeView);
+    @Provides @PerActivity IHomePresenter provideHomePresenter(IPromotionRepository repository) {
+        return new HomePresenter(repository, homeView);
     }
-
 }

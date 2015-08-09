@@ -9,7 +9,6 @@ import br.com.lowestprice.R;
 public class PromotionAddActivity extends BaseCompatActivity {
     @Override
     public void setViewValues() {
-        this.showActionBarBackButton();
     }
 
     @Override

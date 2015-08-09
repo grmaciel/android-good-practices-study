@@ -16,15 +16,17 @@ public abstract class BaseCompatActivity extends AppCompatActivity {
     public abstract void setViewValues();
     public abstract int getLayoutFile();
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        onBeforeSetContent();
         super.onCreate(savedInstanceState);
-
         setContentView(getLayoutFile());
-
         loadParams(savedInstanceState);
         setViewValues();
     }
+
+    public void onBeforeSetContent() {}
 
     public void loadParams(Bundle savedInstanceState) {
     }

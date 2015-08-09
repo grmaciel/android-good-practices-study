@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -19,11 +20,9 @@ import javax.inject.Inject;
 import br.com.androidcore.activity.BaseFragment;
 import br.com.lowestprice.R;
 import br.com.lowestprice.di.AndroidApplication;
-import br.com.lowestprice.di.component.DaggerActivityComponent;
-import br.com.lowestprice.di.component.DaggerPresenterComponent;
-import br.com.lowestprice.di.module.PresenterModule;
+import br.com.lowestprice.di.component.DaggerHomePresenterComponent;
+import br.com.lowestprice.di.module.HomePresenterModule;
 import br.com.lowestprice.domain.model.Promotion;
-import br.com.lowestprice.presenter.HomePresenter;
 import br.com.lowestprice.presenter.IHomePresenter;
 import br.com.lowestprice.view.HomeView;
 import br.com.lowestprice.view.PromotionView;
@@ -48,6 +47,9 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
     @Bind(R.id.homePromotionList)
     ListView promotionListView;
 
+    @Bind(R.id.rl_progress)
+    RelativeLayout rl_progress;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
@@ -58,9 +60,9 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
 
     @Override
     public void setViewValues(Bundle savedInstanceState) {
-        DaggerPresenterComponent.builder()
+        DaggerHomePresenterComponent.builder()
                 .applicationComponent(((AndroidApplication) getActivity().getApplication()).component())
-                .presenterModule(new PresenterModule(this))
+                .homePresenterModule(new HomePresenterModule(this))
                 .build().inject(this);
     }
 
@@ -71,11 +73,6 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
 
     @Override
     public void renderPromotionList(List<Promotion> promotions) {
-        // ugly thing, just trying out some robolectric tests
-        if (promotions.size() > 3) {
-            promotions = promotions.subList(0, 3);
-        }
-
         getPromotionListView().setAdapter(new PromotionAdapter(promotions));
     }
 
@@ -97,12 +94,12 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
 
     @Override
     public void showLoading() {
-
+        this.rl_progress.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoading() {
-
+        this.rl_progress.setVisibility(View.GONE);
     }
 
     @Override

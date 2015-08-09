@@ -4,9 +4,8 @@ import android.content.Context;
 
 import javax.inject.Singleton;
 
-import br.com.androidcore.activity.BaseActivity;
 import br.com.lowestprice.di.module.ApplicationModule;
-import br.com.lowestprice.di.module.PresenterModule;
+import br.com.lowestprice.domain.repository.IPromotionRepository;
 import dagger.Component;
 
 /**
@@ -19,4 +18,5 @@ import dagger.Component;
         })
 public interface ApplicationComponent {
     Context context();
+    IPromotionRepository promoRepository();
 }

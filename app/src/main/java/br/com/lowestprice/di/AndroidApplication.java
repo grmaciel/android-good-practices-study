@@ -5,7 +5,6 @@ import android.app.Application;
 import br.com.lowestprice.di.component.ApplicationComponent;
 import br.com.lowestprice.di.component.DaggerApplicationComponent;
 import br.com.lowestprice.di.module.ApplicationModule;
-import br.com.lowestprice.di.module.PresenterModule;
 
 /**
  * /**

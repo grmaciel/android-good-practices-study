@@ -23,8 +23,7 @@ public class HomeFragmentTest extends BaseTest {
 
     @Override
     public void setup() {
-        MainActivity activity = Robolectric.buildActivity(MainActivity.class).create().get();
-        fragment = (HomeFragment) activity.getHomeFragment();
+        fragment = new HomeFragment();
         FragmentTestUtil.startFragment(fragment);
     }
 
