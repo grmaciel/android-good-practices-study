@@ -9,9 +9,10 @@ I want to study specific API's and technologies for the Android platform. To ach
 **Dagger 2 - Dependency Injection**<br>
 **Butter Knife - View Injection**<br>
 **Robolectric - Tests**<br>
-**Retrofit** - Rest communication<br>
+**Mockito**<br>
+**Retrofit - Rest communication**<br>
 **Retrolambda**<br>
-**RxJava**<br>
+**RxAndroid**<br>
 
 ## The Server Side <br>
 I want to try it out the Play! Framework. It's build on top of Akka which makes it high scalable and it's restful.
