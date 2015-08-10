@@ -19,6 +19,6 @@ I want to try it out the Play! Framework. It's build on top of Akka which makes 
 
 ## The Technologies <br>
 **Play! Framework**<br>
-**Java**<br>
+**Java or Scala** - I think i will with scala<br>
 **Angular JS**<br>
 **Bootstrap**<br>
