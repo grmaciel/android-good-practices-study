@@ -2,6 +2,8 @@ import android.content.Intent;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.robolectric.Robolectric;
 import org.robolectric.Shadows;
 import org.robolectric.util.FragmentTestUtil;
@@ -11,9 +13,15 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.lowestprice.domain.model.Promotion;
+import br.com.lowestprice.domain.repository.IPromotionRepository;
+import br.com.lowestprice.repository.database.PromotionRepository;
 import br.com.lowestprice.view.activity.MainActivity;
 import br.com.lowestprice.view.activity.PromotionAddActivity;
 import br.com.lowestprice.view.fragment.HomeFragment;
+import rx.Observable;
+import rx.observers.TestSubscriber;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 /**
  * Created by Gilson Maciel on 02/08/2015.
@@ -38,6 +46,14 @@ public class HomeFragmentTest extends BaseTest {
 
     @Test
     public void adapterNotEmptyAfterRenderPromotionList() {
+        List<Promotion> promotions = getFakePromotions();
+
+        fragment.renderPromotionList(promotions);
+        Assertions.assertThat(fragment.getPromotionListView()
+                .getAdapter().getCount()).isGreaterThan(0);
+    }
+
+    private List<Promotion> getFakePromotions() {
         List<Promotion> promotions = new ArrayList<>();
         Promotion promo1 = new Promotion("", 1.98, new Date(), "", "");
         Promotion promo2 = new Promotion("", 1.98, new Date(), "", "");
@@ -47,10 +63,18 @@ public class HomeFragmentTest extends BaseTest {
         promotions.add(promo2);
         promotions.add(promo3);
         promotions.add(promo4);
+        return promotions;
+    }
 
-        fragment.renderPromotionList(promotions);
-        Assertions.assertThat(fragment.getPromotionListView()
-                .getAdapter().getCount()).isGreaterThan(0);
+    @Test
+    public void promotionRepositoryShouldReturnToSubscriber() {
+        PromotionRepository repo = new PromotionRepository();
+        TestSubscriber<List<Promotion>> testSubscriber = new TestSubscriber<>();
+        repo.queryLastestPromotion(3).subscribe(testSubscriber);
+
+        testSubscriber.assertValue(repo.getFakePromotions());
+        testSubscriber.assertNoErrors();
+        assertThat(testSubscriber.getOnNextEvents().size(), is(1));
     }
 
     @Override

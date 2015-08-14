@@ -31,14 +31,13 @@ public class PromotionRepository implements IPromotionRepository {
                 } catch (InterruptedException e) {
                     subscriber.onError(e);
                 }
-
                 subscriber.onNext(getFakePromotions());
                 subscriber.onCompleted();
             }
         }).observeOn(AndroidSchedulers.mainThread());
     }
 
-    private List<Promotion> getFakePromotions() {
+    public List<Promotion> getFakePromotions() {
         List<Promotion> promotions = new ArrayList<>();
         Promotion promo1 = new Promotion("Cerveja Brahma", 1.45, new Date(), "Angeloni", "");
         Promotion promo2 = new Promotion("Vinho Casillero del Diablo", 21.99, new Date(), "Giassi", "");

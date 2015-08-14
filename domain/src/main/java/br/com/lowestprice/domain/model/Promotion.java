@@ -39,4 +39,15 @@ public class Promotion {
     public String getPlaceAdress() {
         return placeAdress;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || obj.getClass() != getClass()) {
+            return false;
+        } else {
+            Promotion promo = (Promotion) obj;
+            return this.getPlaceName().equals(promo.getPlaceName())
+                    && this.getPlaceAdress().equals(promo.getPlaceAdress());
+        }
+    }
 }
