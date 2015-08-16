@@ -66,9 +66,9 @@ public class HomeFragmentTest extends BaseTest {
         TestSubscriber<List<Promotion>> testSubscriber = new TestSubscriber<>();
         repo.queryLastestPromotion(3).subscribe(testSubscriber);
 
-        testSubscriber.assertValue(repo.getFakePromotions());
+        testSubscriber.assertValues(repo.getFakePromotions(), repo.getFakeServerPromotions());
         testSubscriber.assertNoErrors();
-        assertThat(testSubscriber.getOnNextEvents().size(), is(1));
+        assertThat(testSubscriber.getOnNextEvents().size(), is(2));
     }
 
     @Override
