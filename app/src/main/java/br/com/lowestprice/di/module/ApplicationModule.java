@@ -6,8 +6,7 @@ import javax.inject.Singleton;
 
 import br.com.lowestprice.di.AndroidApplication;
 import br.com.lowestprice.domain.repository.IPromotionRepository;
-import br.com.lowestprice.repository.database.PromotionRepository;
-import br.com.lowestprice.view.HomeView;
+import br.com.lowestprice.repository.PromotionRepository;
 import dagger.Module;
 import dagger.Provides;
 

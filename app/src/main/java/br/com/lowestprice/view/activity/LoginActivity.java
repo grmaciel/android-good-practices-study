@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import br.com.androidcore.activity.BaseCompatActivity;
 import br.com.lowestprice.R;
 import br.com.lowestprice.presenter.IHomePresenter;
+import br.com.lowestprice.service.LocationService;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -28,7 +29,6 @@ public class LoginActivity extends BaseCompatActivity {
 
     @Override
     public void setViewValues() {
-
         this.hideActionBar();
         ButterKnife.bind(this);
     }

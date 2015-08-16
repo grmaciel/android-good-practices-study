@@ -37,22 +37,26 @@ public class HomePresenter implements IHomePresenter {
     private void getLastThreePromotions() {
         this.promotionRepository.queryLastestPromotion(3)
                 .subscribeOn(Schedulers.newThread())
-                .subscribe(new Observer<List<Promotion>>() {
-                    @Override
-                    public void onCompleted() {
-                        view.hideLoading();
-                    }
+                .subscribe(getPromotionObserver());
+    }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        view.showError(e.toString());
-                    }
+    private Observer<List<Promotion>> getPromotionObserver() {
+        return new Observer<List<Promotion>>() {
+            @Override
+            public void onCompleted() {
+                view.hideLoading();
+            }
 
-                    @Override
-                    public void onNext(List<Promotion> promotions) {
-                        view.renderPromotionList(promotions);
-                    }
-                });
+            @Override
+            public void onError(Throwable e) {
+                view.showError(e.toString());
+            }
+
+            @Override
+            public void onNext(List<Promotion> promotions) {
+                view.renderPromotionList(promotions);
+            }
+        };
     }
 
     public void onBtnAddPromotion() {

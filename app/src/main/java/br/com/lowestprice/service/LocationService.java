@@ -32,7 +32,6 @@ public class LocationService extends Service implements GoogleApiClient.Connecti
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         apiClient.connect();
-
         return Service.START_STICKY;
     }
 
@@ -69,7 +68,6 @@ public class LocationService extends Service implements GoogleApiClient.Connecti
 
     @Override
     public void onConnectionSuspended(int i) {
-
     }
 
     @Override

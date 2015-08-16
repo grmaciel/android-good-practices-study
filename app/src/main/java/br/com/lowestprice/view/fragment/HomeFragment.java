@@ -13,6 +13,7 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.ui.PlacePicker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -50,6 +51,8 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
     @Bind(R.id.rl_progress)
     RelativeLayout rl_progress;
 
+    private PromotionAdapter adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
@@ -64,6 +67,9 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
                 .applicationComponent(((AndroidApplication) getActivity().getApplication()).component())
                 .homePresenterModule(new HomePresenterModule(this))
                 .build().inject(this);
+
+        this.adapter = new PromotionAdapter(new ArrayList<Promotion>());
+        getPromotionListView().setAdapter(adapter);
     }
 
     @Override
@@ -73,7 +79,7 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
 
     @Override
     public void renderPromotionList(List<Promotion> promotions) {
-        getPromotionListView().setAdapter(new PromotionAdapter(promotions));
+        adapter.addData(promotions);
     }
 
     @Override

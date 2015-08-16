@@ -2,9 +2,6 @@ import android.content.Intent;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.robolectric.Robolectric;
 import org.robolectric.Shadows;
 import org.robolectric.util.FragmentTestUtil;
 
@@ -13,12 +10,9 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.lowestprice.domain.model.Promotion;
-import br.com.lowestprice.domain.repository.IPromotionRepository;
-import br.com.lowestprice.repository.database.PromotionRepository;
-import br.com.lowestprice.view.activity.MainActivity;
+import br.com.lowestprice.repository.PromotionRepository;
 import br.com.lowestprice.view.activity.PromotionAddActivity;
 import br.com.lowestprice.view.fragment.HomeFragment;
-import rx.Observable;
 import rx.observers.TestSubscriber;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;

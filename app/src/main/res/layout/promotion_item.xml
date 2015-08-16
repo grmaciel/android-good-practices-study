@@ -9,7 +9,6 @@
         android:id="@+id/promotionProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cerveja Brahma"
         android:textColor="@color/BoozePriceBar"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -19,8 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:text="Giassi Supermercados" />
+        android:layout_marginRight="10dp" />
 
     <TextView
         android:id="@+id/promotionProductPrice"
@@ -28,7 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/promotionProductName"
         android:layout_marginTop="5dp"
-        android:layout_gravity="right"
-        android:text="R$1,85" />
+        android:layout_gravity="right" />
 
 </RelativeLayout>
