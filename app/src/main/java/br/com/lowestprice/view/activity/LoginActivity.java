@@ -1,7 +1,14 @@
 package br.com.lowestprice.view.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
@@ -9,6 +16,7 @@ import br.com.androidcore.activity.BaseCompatActivity;
 import br.com.lowestprice.R;
 import br.com.lowestprice.presenter.IHomePresenter;
 import br.com.lowestprice.service.LocationService;
+import br.com.lowestprice.service.RegistrationIntentService;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -24,6 +32,8 @@ public class LoginActivity extends BaseCompatActivity {
     @Bind(R.id.loginBtnLogin)
     Button btnAccountLogin;
 
+    private BroadcastReceiver receiver;
+
     @Inject
     IHomePresenter presenter;
 
@@ -31,6 +41,41 @@ public class LoginActivity extends BaseCompatActivity {
     public void setViewValues() {
         this.hideActionBar();
         ButterKnife.bind(this);
+        this.registerGcmToken();
+    }
+
+    private void registerGcmToken() {
+        receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                SharedPreferences sharedPreferences =
+                        PreferenceManager.getDefaultSharedPreferences(context);
+                boolean sentToken = sharedPreferences
+                        .getBoolean("sentTokenToServer", false);
+                if (sentToken) {
+                    Toast.makeText(LoginActivity.this, "Gcm Sended", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Gcm Error", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+
+        Intent intent = new Intent(this, RegistrationIntentService.class);
+        startService(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LocalBroadcastManager.getInstance(this).registerReceiver(receiver,
+                new IntentFilter("registrationComplete"));
+
+    }
+
+    @Override
+    protected void onPause() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
+        super.onPause();
     }
 
     @Override

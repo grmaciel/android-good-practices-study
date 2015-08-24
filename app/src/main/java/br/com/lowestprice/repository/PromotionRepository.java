@@ -59,7 +59,6 @@ public class PromotionRepository implements IPromotionRepository {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
                 subscriber.onNext(getFakeServerPromotions());
                 subscriber.onCompleted();
             }

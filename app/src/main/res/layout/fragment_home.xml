@@ -12,12 +12,11 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/homePromotionList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_below="@+id/txtTitlePromotions"
-        android:layout_weight="1" />
+        android:layout_height="match_parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btnAddPromotion"

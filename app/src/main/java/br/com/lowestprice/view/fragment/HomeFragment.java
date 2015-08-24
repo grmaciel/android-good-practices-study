@@ -1,8 +1,11 @@
 package br.com.lowestprice.view.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +49,7 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
     FloatingActionButton btnAdd;
 
     @Bind(R.id.homePromotionList)
-    ListView promotionListView;
+    RecyclerView promotionListView;
 
     @Bind(R.id.rl_progress)
     RelativeLayout rl_progress;
@@ -68,7 +71,9 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
                 .homePresenterModule(new HomePresenterModule(this))
                 .build().inject(this);
 
-        this.adapter = new PromotionAdapter(new ArrayList<Promotion>());
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        getPromotionListView().setLayoutManager(llm);
+        this.adapter = new PromotionAdapter(getActivity(), new ArrayList<Promotion>());
         getPromotionListView().setAdapter(adapter);
     }
 
@@ -139,7 +144,7 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
         return btnAdd;
     }
 
-    public ListView getPromotionListView() {
+    public RecyclerView getPromotionListView() {
         return promotionListView;
     }
 

@@ -12,11 +12,6 @@ public class PromotionPresenter implements Presenter {
         this.view = view;
     }
 
-    /**
-     * Initialiaze the presenter to load data
-     * later on should be a asynchronous load
-     * with RxJava
-     */
     public void loadPromotions() {
         this.view.showLoading();
         this.loadPromotionsData();
