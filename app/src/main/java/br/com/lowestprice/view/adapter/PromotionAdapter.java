@@ -10,11 +10,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
-import br.com.androidcore.adapter.CustomAdapter;
 import br.com.androidcore.adapter.CustomRecyclerAdapter;
 import br.com.lowestprice.R;
 import br.com.lowestprice.domain.model.Promotion;
@@ -57,7 +54,7 @@ public class PromotionAdapter extends CustomRecyclerAdapter<Promotion, Promotion
         viewHolder.price.setText(String.valueOf(promo.getProductPrice()));
         viewHolder.place.setText(promo.getPlaceName());
 
-        this.setAnimation(viewHolder.container, i);
+//        this.setAnimation(viewHolder.container, i);
     }
 
     private void setAnimation(View container, int i) {
@@ -74,6 +71,7 @@ public class PromotionAdapter extends CustomRecyclerAdapter<Promotion, Promotion
     public int getItemCount() {
         return data.size();
     }
+
     static class ViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.promotionLayoutContainer)
         RelativeLayout container;

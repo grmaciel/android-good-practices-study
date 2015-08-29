@@ -43,7 +43,7 @@ public class HomeFragmentTest extends BaseTest {
         List<Promotion> promotions = getFakePromotions();
 
         fragment.renderPromotionList(promotions);
-        Assertions.assertThat(fragment.getPromotionListView()
+        Assertions.assertThat(fragment.getPromotionRecyclerView()
                 .getAdapter().getItemCount()).isGreaterThan(0);
     }
 
