@@ -99,7 +99,6 @@ public class MainActivity extends BaseCompatActivity {
     }
 
     public void onMenuClickListener(int position) {
-        Toast.makeText(this, "AAAA", Toast.LENGTH_LONG).show();
     }
 
     private void setupMenuItens() {

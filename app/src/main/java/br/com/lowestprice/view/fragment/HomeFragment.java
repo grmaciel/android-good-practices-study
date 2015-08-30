@@ -1,6 +1,9 @@
 package br.com.lowestprice.view.fragment;
 
+import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -22,6 +25,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.androidcore.activity.BaseFragment;
+import br.com.androidcore.adapter.IOnItemClickListener;
 import br.com.lowestprice.R;
 import br.com.lowestprice.di.AndroidApplication;
 import br.com.lowestprice.di.component.DaggerHomePresenterComponent;
@@ -31,6 +35,7 @@ import br.com.lowestprice.presenter.IHomePresenter;
 import br.com.lowestprice.view.HomeView;
 import br.com.lowestprice.view.PromotionView;
 import br.com.lowestprice.view.activity.PromotionAddActivity;
+import br.com.lowestprice.view.activity.PromotionViewActivity;
 import br.com.lowestprice.view.adapter.PromotionAdapter;
 import br.com.lowestprice.view.components.RecyclerItemSeparator;
 import butterknife.Bind;
@@ -81,7 +86,17 @@ public class HomeFragment extends BaseFragment implements PromotionView, HomeVie
                 RecyclerItemSeparator(getResources()
                 .getDrawable(R.drawable.list_item_separator)));
         getPromotionRecyclerView();
-        this.adapter = new PromotionAdapter(getActivity(), new ArrayList<Promotion>());
+        this.adapter = new PromotionAdapter(getActivity(), new ArrayList<Promotion>(),
+                new IOnItemClickListener<Promotion>() {
+                    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public void onClick(View image, Promotion data) {
+                        Intent intent = new Intent(getActivity(), PromotionViewActivity.class);
+                        ActivityOptions options = ActivityOptions
+                                .makeSceneTransitionAnimation(getActivity(), image, "productTransition");
+                        startActivity(intent, options.toBundle());
+                    }
+                });
         getPromotionRecyclerView().setAdapter(adapter);
 
         Snackbar.make(rootView, "Snackbar coordinator layout...", Snackbar.LENGTH_SHORT)

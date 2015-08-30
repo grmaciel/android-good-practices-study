@@ -44,6 +44,7 @@
         <activity android:name=".view.activity.MainActivity" />
         <activity android:name=".view.activity.RegistrationActivity" />
         <activity android:name=".view.activity.PromotionAddActivity" android:theme="@style/AppDialogTheme" />
+        <activity android:name=".view.activity.PromotionViewActivity" />
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
